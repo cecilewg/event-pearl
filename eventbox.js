@@ -8,22 +8,22 @@ function empty () {
   eventEmitter.on('start', () => {
     console.log('Hi')
   })
-
   eventEmitter.emit('start')
 }
-
-empty();
 
 // Ex 2
 // Create a function withArgs that takes an array, create and emit an event newFellow for all array item's
 
 function withArgs (names) {
-  eventEmitter.on('start', names => {
+  eventEmitter.on('newFellow', names => {
     for (var i = 0; i < names.length; i++) {
       console.log(`Here come's a new pirate ->> ${names[i]}`)
     }
   })
-  eventEmitter.emit('start', names)
+  eventEmitter.emit('newFellow', names)
 }
 
-withArgs(['Luffy', 'Zoro', 'Usopp', 'Robin', 'Nami', 'Sanji', 'Ch0pper']);
+module.exports = {
+  empty,
+  withArgs,
+}
